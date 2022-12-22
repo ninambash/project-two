@@ -1,15 +1,15 @@
 // required packages
+// required packages
 require('dotenv').config()
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
-const ejs = require('ejs')
+const crypto = require('crypto-js')
 
 // app config
 const app = express()
-app.set('view engine', 'ejs')
-app.engine('ejs', require('ejs').__express)
 const PORT = process.env.PORT || 8000
+app.set('view engine', 'ejs')
 // parse request bodies from html forms
 app.use(express.urlencoded({ extended: false }))
 // tell express to parse incoming cookies
@@ -21,8 +21,11 @@ app.use(cookieParser())
 app.use(async (req, res, next) => {
     try {
         if (req.cookies.userId) {
+            // decrypt the user id and turn it into a string
+            const decryptedId = crypto.AES.decrypt(req.cookies.userId, process.env.SECRET)
+            const decryptedString = decryptedId.toString(crypto.enc.Utf8)
             // the user is logged in, lets find them in the db
-            const user = await db.user.findByPk(req.cookies.userId)
+            const user = await db.user.findByPk(decryptedString)
             // mount the logged in user on the res.locals
             res.locals.user = user
         } else {
@@ -34,6 +37,8 @@ app.use(async (req, res, next) => {
         next()
     } catch (err) {
         console.log('error in auth middleware: 🔥🔥🔥🔥', err)
+        // explicity set user to null if there is an error
+        res.locals.user = null
         next() // go to the next thing
     }
 })
