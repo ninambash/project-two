@@ -11,9 +11,8 @@ Do you like shopping for your loved ones but don't have enough time? I introduce
 3. You will need to install a few file for functionality. In your terminal: touch .gitignore .env<br>
 4. Add node_modules and .env to your .gitignore file<br>
 5.You will need an API key for Etsy<br>
-6.Create the database and migrate the models into it by running the following commands:<br>
-- sequelize db:migrate<br>
-7.run the nodemon and navigate to localHost:3000 in your browser and you are all set! Enjoy!<br>
+6.Create the database and migrate the models into it by running the following commands:<br> sequelize db:migrate<br>
+7.Run the nodemon and navigate to localHost:3000 in your browser and you are all set! Enjoy!<br>
 
 
 # Restful Routing chart
