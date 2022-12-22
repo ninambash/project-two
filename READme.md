@@ -18,6 +18,13 @@ Do you like shopping for your loved ones but don't have enough time? I introduce
 # Restful Routing 
 ![Routingchart](https://user-images.githubusercontent.com/81638717/209236181-b3e3c093-2328-43e2-a344-f99dd44a1113.png)
 
+# ERD
+![ERD drawio](https://user-images.githubusercontent.com/81638717/209239209-bac0f0e3-fd7e-47f8-888c-29d9c846db87.png)
+
+# Wirereame
+
+![Wireframe drawio](https://user-images.githubusercontent.com/81638717/209239193-d7a1f909-9cfb-4f27-abd3-265ade189836.png)
+
 
 
 # Tech stack
