@@ -3,6 +3,7 @@ const express = require('express')
 const db = require('../models')
 const router = express.Router()
 
+
 // mount our routes on the router
 
 // GET /users/new -- serves a form to create a new user
