@@ -15,11 +15,9 @@ Do you like shopping for your loved ones but don't have enough time? I introduce
 7.Run the nodemon and navigate to localHost:3000 in your browser and you are all set! Enjoy!<br>
 
 
-# Restful Routing chart
-https://app.diagrams.net/
-# Wireframe
-![wireframe](./wireframe.png)
-https://app.diagrams.net/?src=about
+# Restful Routing 
+![Routingchart](https://user-images.githubusercontent.com/81638717/209236181-b3e3c093-2328-43e2-a344-f99dd44a1113.png)
+
 
 
 # Tech stack
