@@ -76,7 +76,7 @@ Styling the app to look nicer
 # approach taken
 
 
-Researched for the api in mind, looked for available API
+
 ---------------------------------------------------
 
 
