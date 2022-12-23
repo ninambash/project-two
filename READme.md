@@ -79,6 +79,8 @@ Styling the app to look nicer
 -EJs<br>
 # approach taken
 
+Researched for an API in mind
+
 
 
 ---------------------------------------------------
