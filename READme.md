@@ -19,14 +19,17 @@ Splendid is a Medical app that helps Nursing and Medical students do a quick ref
 
 
 # Restful Routing 
-![Routingchart](https://user-images.githubusercontent.com/81638717/209236181-b3e3c093-2328-43e2-a344-f99dd44a1113.png)
+<img width="1680" alt="Screenshot 2022-12-23 at 10 43 25 AM" src="https://user-images.githubusercontent.com/81638717/209396886-e15148c1-d492-459c-8c63-7872b5b9b47d.png">
+
+
 
 # ERD
-![ERD drawio](https://user-images.githubusercontent.com/81638717/209239209-bac0f0e3-fd7e-47f8-888c-29d9c846db87.png)
+![Screenshot 2022-12-23 at 10 43 25 AM (2)](https://user-images.githubusercontent.com/81638717/209396839-312e3fa7-19e7-4692-810b-cbdf85ae3e51.png)
 
-# Wirereame
 
-![Wireframe drawio](https://user-images.githubusercontent.com/81638717/209239193-d7a1f909-9cfb-4f27-abd3-265ade189836.png)
+# Wireframe
+![Screenshot 2022-12-23 at 11 08 23 AM (2)](https://user-images.githubusercontent.com/81638717/209396808-ee91d09c-e576-42d7-a409-ca6f5cb49bd5.png)
+
 
 
 
