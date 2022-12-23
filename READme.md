@@ -18,11 +18,18 @@ Splendid is a Medical app that helps Nursing and Medical students do a quick ref
 7.Run the nodemon and navigate to localHost:3000 in your browser and you are all set! Enjoy!<br>
 
 
-# Restful Routing 
+# Restful Routing Chart
+
+<img width="1680" alt="Screenshot 2022-12-23 at 10 43 25 AM" src="https://user-images.githubusercontent.com/81638717/209398965-0d375cad-2657-4606-afaa-a4794a8245f3.png">
+
 
 # ERD
+![Screenshot 2022-12-23 at 10 43 25 AM (2)](https://user-images.githubusercontent.com/81638717/209398982-ab9e12c8-30f1-47b6-959a-520f6da3f7bb.png)
+
+
 
 # Wirereame  
+![Screenshot 2022-12-23 at 11 08 23 AM (2)](https://user-images.githubusercontent.com/81638717/209399013-a2144a3d-cd66-45a1-a972-6fb3a38a52ec.png)
 
 
 
