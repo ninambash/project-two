@@ -24,7 +24,8 @@ Splendid is a Medical app that helps Nursing and Medical students do a quick ref
 
 
 # ERD
-![Screenshot 2022-12-23 at 10 43 25 AM (2)](https://user-images.githubusercontent.com/81638717/209398982-ab9e12c8-30f1-47b6-959a-520f6da3f7bb.png)
+![Screenshot 2022-12-23 at 11 51 59 AM (2)](https://user-images.githubusercontent.com/81638717/209400249-9864d864-8fb4-475d-a732-d7c636f4a7f6.png)
+
 
 
 
