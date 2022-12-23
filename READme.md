@@ -8,7 +8,7 @@ Splendid is a Medical app that helps Nursing and Medical students do a quick ref
 
 
 
-# Install Track app
+# Install Splendid 
 1.Fork and clone repository<br>
 2. In your terminal run command: npm install (this will install all needed packages)<br>
 3. You will need to install a few file for functionality. In your terminal: touch .gitignore .env<br>
