@@ -1,16 +1,19 @@
 # Project 2
-Luna's online stores
+Splendid
 
 
 #  Pitch
-Do you like shopping for your loved ones but don't have enough time? I introduce to you Luna's. This is an online shopping platform to buy gifts for everyone in your list. Products are customer reviewed. Try our stores today.
+Splendid is a Medical app that helps Nursing and Medical students do a quick refrence of what type of disease the patient is likely to be suffering from based on the symptoms they are showing and search query.
 
-# Install Luna's app
+
+
+
+# Install Track app
 1.Fork and clone repository<br>
 2. In your terminal run command: npm install (this will install all needed packages)<br>
 3. You will need to install a few file for functionality. In your terminal: touch .gitignore .env<br>
 4. Add node_modules and .env to your .gitignore file<br>
-5.You will need an API key for Etsy<br>
+5.You will need an API key for Lexigram<br>
 6.Create the database and migrate the models into it by running the following commands:<br> sequelize db:migrate<br>
 7.Run the nodemon and navigate to localHost:3000 in your browser and you are all set! Enjoy!<br>
 
@@ -36,13 +39,13 @@ html<br>
 css<br>
 JavaScript<br>
 sql<br>
--etsy https://www.etsy.com/developers/documentation/getting_started/api_basics
+- https://docs.lexigram.io/
 
 # User Story
-As a user, I want to log into my profile and search for the product in mind<br>
-As a user, I want to see a reviewed product before purchasing<br>
-As a user, I want to be able to add a review to the product I purchased<br>
-As a user, I want an opportunity to delete my comment and delete my account<br>
+As a user, I want to log into my profile and search for the presented symptom<br>
+As a user, I want to see a response of what the disease the patient could be suffering from<br>
+As a user, I want to be able to update patient symptoms<br>
+As a user, I want an opportunity to delete the user if they are cured<br>
 
 # MVP Goals
 -adding API<br>
@@ -55,8 +58,8 @@ As a user, I want an opportunity to delete my comment and delete my account<br>
 
 
 # stretch goals
-Add shipping location<br>
-Adding approximate arrival<br>
+Add medication table<br>
+Keeping track of the desease and how many people are suffering from that desease <br>
 Styling the app to look nicer
 
 
