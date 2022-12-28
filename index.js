@@ -1,5 +1,6 @@
 // required packages
 // required packages
+const ejs = require('ejs')
 require('dotenv').config()
 const express = require('express')
 const cookieParser = require('cookie-parser')
@@ -8,8 +9,9 @@ const crypto = require('crypto-js')
 
 // app config
 const app = express()
-const PORT = process.env.PORT || 8000
 app.set('view engine', 'ejs')
+app.engine('ejs', require('ejs').__express)
+const PORT = process.env.PORT || 8000
 // parse request bodies from html forms
 app.use(express.urlencoded({ extended: false }))
 // tell express to parse incoming cookies
