@@ -66,12 +66,13 @@ router.post('/login', async (req, res) => {
                 email: req.body.email
             }
         })
+        console.log(user)
         // boilerplate message if login fails
         const badCredentialMessage = 'username or password incorrect'
         if (!user) {
             // if the user isn't found in the db 
             res.redirect('/users/login?message=' + badCredentialMessage)
-        } else if (user.password !== req.body.password) {
+        } else if (!bcrypt.compareSync(req.body.password, user.password)) {
             // if the user's supplied password is incorrect
             res.redirect('/users/login?message=' + badCredentialMessage)
         } else {
@@ -101,6 +102,38 @@ router.get('/profile', (req, res) => {
         res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
     } else {
         res.render('users/profile.ejs', {
+            user: res.locals.user
+        })
+    }
+})
+
+
+router.get('/exercise', (req, res) => {
+    // if the user is not logged in -- they are not allowed to be here
+    if (!res.locals.user) {
+        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
+    } else {
+        res.render('users/exerciselog.ejs', {
+            user: res.locals.user
+        })
+    }
+})
+router.get('/Recipes', (req, res) => {
+    // if the user is not logged in -- they are not allowed to be here
+    if (!res.locals.user) {
+        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
+    } else {
+        res.render('users/Recipes.ejs', {
+            user: res.locals.user
+        })
+    }
+})
+router.get('/settings', (req, res) => {
+    // if the user is not logged in -- they are not allowed to be here
+    if (!res.locals.user) {
+        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
+    } else {
+        res.render('users/settings.ejs', {
             user: res.locals.user
         })
     }

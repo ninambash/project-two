@@ -6,9 +6,12 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
+const axios = require('axios')
 
 // app config
 const app = express()
+
+
 app.set('view engine', 'ejs')
 app.engine('ejs', require('ejs').__express)
 const PORT = process.env.PORT || 8000
@@ -16,6 +19,8 @@ const PORT = process.env.PORT || 8000
 app.use(express.urlencoded({ extended: false }))
 // tell express to parse incoming cookies
 app.use(cookieParser())
+//app.use(methodOverride("_method"))
+app.use(express.static("public"))
 
 // custom auth middleware that checks the cookies for a user id
 // and it finds one, look up the user in the db
@@ -44,6 +49,27 @@ app.use(async (req, res, next) => {
         next() // go to the next thing
     }
 })
+// Get localhost 8000 /home
+
+//Get recepe page
+//exercise page
+
+// async function fetchData() {
+//     try {
+//         const options = {
+//             headers: {
+//                 Authorization: `Bearer ${apikey}`
+//             }
+//         }
+
+//         const response = await axios.get('https://api.nutritionix.com/v1_1/search', options)
+//         console.log(response.data)
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }
+
+// fetchData()
 
 // example custom middleware (incoming request logger)
 app.use((req, res, next) => {
@@ -59,12 +85,58 @@ app.use((req, res, next) => {
 // routes and controllers
 app.get('/', (req, res) => {
     console.log(res.locals.user)
+   
     res.render('home.ejs', {
         user: res.locals.user
     })
 })
+app.get('/profile', (req, res) => {
+   console.log(res.locals.user)
+   
+    res.render('profile', {
+        user: res.locals.user
+    })
+})
+//app.post('/exerciselog', (req, res) => {
+//console.log(res.locals.user)
+   
+    //res.render('exerciselog/create.ejs', {
+       // user: res.locals.user
+    //})
+//})
+//app.update('/exerciselog', (req, res) => {
+//console.log(res.locals.user)
+   
+    //res.render('exerciselog/create.ejs', {
+       // user: res.locals.user
+    //})
+//})
+//app.post('/foodloglog', (req, res) => {
+//console.log(res.locals.user)
+   
+    //res.render('foodloglog/create.ejs', {
+       // user: res.locals.user
+    //})
+//})
+//app.update('/foodlog', (req, res) => {
+//console.log(res.locals.user)
+   
+    //res.render('exerciselog/create.ejs', {
+       // user: res.locals.user
+    //})
+//})
+app.get('/Recipes', (req, res) => {
+console.log(res.locals.user)
+   
+    res.render('/Recipes.ejs', {
+        user: res.locals.user
+    })
+})
+
 
 app.use('/users', require('./controllers/users'))
+app.use("/calories", require ("./controllers/calories"))
+//app.use("/user_notes", require ("./controllers/user_notes"))
 
 // listen on a port
 app.listen(PORT, () => {
