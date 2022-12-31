@@ -108,26 +108,37 @@ router.get('/profile', (req, res) => {
 })
 
 
-router.get('/exercise', (req, res) => {
+router.get('/workout', (req, res) => {
     // if the user is not logged in -- they are not allowed to be here
     if (!res.locals.user) {
         res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
     } else {
-        res.render('users/exerciselog.ejs', {
+        res.render('users/workout.ejs', {
             user: res.locals.user
         })
     }
 })
-router.get('/Recipes', (req, res) => {
+router.get('/recipes', (req, res) => {
     // if the user is not logged in -- they are not allowed to be here
     if (!res.locals.user) {
         res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
     } else {
-        res.render('users/Recipes.ejs', {
+        res.render('users/recipes.ejs', {
             user: res.locals.user
         })
     }
 })
+router.get('/about', (req, res) => {
+    // if the user is not logged in -- they are not allowed to be here
+    if (!res.locals.user) {
+        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
+    } else {
+        res.render('users/about.ejs', {
+            user: res.locals.user
+        })
+    }
+})
+
 router.get('/settings', (req, res) => {
     // if the user is not logged in -- they are not allowed to be here
     if (!res.locals.user) {

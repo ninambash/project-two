@@ -12,83 +12,107 @@
            background-color: rgb(64, 64, 141);
            color: white;
        }
+       .pure-menu-heading{
+        
+         margin-left: 30px;
+       }
+       .button-is-link{
+         border: none;
+         background-color: none;
+         
+        
+         margin-left: 170px;
+       
+       }
+       .box{
+         margin: 30px;
+         background-color: brown;
+         background: none;
+       }
+       
+
    </style>
 </head>
 <body>
     <nav>
         <ul>
             <!-- show home whether the user is logged in or not -->
-            <li><a href='/'>Home</a></li>
+            <li></li>
             <% if (user) { %>
                 <!-- show these if user is logged -->
-                <li><a href="/users/logout">Logout</a></li>
                 <div class="header">
-                    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-                        <a class="pure-menu-heading" href="/users/profile">Your Profile</a>
-                
+                  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                    
+                    
+                    
+                  </div>
+                  <% } else { %>
+                    <!-- show these if user not logged in -->
+                    <li><a href="/users/new">Sign Up</a></li>
+                    <li><a href="/users/login">Login</a></li>
+                    <% } %>
+                  </ul>
+                </nav>
+                <!DOCTYPE html>
+                <html>
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>Hello user!</title>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+                  </head>
+                  <body>
+                    <section class="section">
+                      <nav class="navbar" role="navigation" aria-label="main navigation">
+                        <div class="navbar-brand">
+                          
+                          <img src="https://tse4.mm.bing.net/th?id=OIP.EZUkL8zjIuB_od0vHEeovwHaHa&pid=Api&P=0" width="90" height="15">
+                        </a>
+                        
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                          <span aria-hidden="true"></span>
+                          <span aria-hidden="true"></span>
+                          <span aria-hidden="true"></span>
+                        </a>
+                      </div>
+                      
+                      <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                          <a class="/" style="margin-left: 100px;">
+                            
+                            <a style="margin-top: 50px;" href='/'>Home</a></li>
+                          </a>
+                          
+                        </a>
+                        
+                        <a class="navbar-item"style="margin-left: 70px;" href="users/recipes">
+                          Recipes
+                        </a>
+                        <a class="pure-menu-heading" style="margin-top: 50px;" href="/users/profile">Profile</a>
+                      </a>
+                      <a class="navbar-item"style="margin-left: 80px;" href="/users/workout">
+                        Workouts
+                        <a class="navbar-item"style="margin-left: 50px;" href="/users/about">
+                          About
+                        </a>
+                        <a class="navbar-item" style="margin-left: 100px;" href="/users/settings">
+                          Settings
+                        </a>
+                        <div class="box" style="margin-left: 250px;">
+                          search
+                        </div>
+                        <button class="button is-success is-rounded" style="margin-top: 40px;">Rounded</button>
                        
+                        
+                        
+                      </div>
                     </div>
-            <% } else { %>
-                <!-- show these if user not logged in -->
-                <li><a href="/users/new">Sign Up</a></li>
-                <li><a href="/users/login">Login</a></li>
-            <% } %>
-        </ul>
-    </nav>
-    <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello user!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  </head>
-  <body>
-  <section class="section">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-            <a class="navbar-item">
-                Profile
-              </a>
-      
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-                Recipes
-              </a>
-              <a class="navbar-item">
-                 Workouts
-              </a>
-              <a class="navbar-item">
-                Settings
-              </a>
-      
-            
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons"> 
-                <a class="button is-light">
-                  Log out
+                    
+                    <div class="navbar-end">
+                      <div class="navbar-item">
+                        <div class="buttons"> 
+                         
+                            <a class="button is-light" href="/users/logout">Logout</a>
                 </a>
               </div>
             </div>

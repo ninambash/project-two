@@ -3,6 +3,7 @@
 const ejs = require('ejs')
 require('dotenv').config()
 const express = require('express')
+const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
@@ -17,6 +18,7 @@ app.engine('ejs', require('ejs').__express)
 const PORT = process.env.PORT || 8000
 // parse request bodies from html forms
 app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 // tell express to parse incoming cookies
 app.use(cookieParser())
 //app.use(methodOverride("_method"))
@@ -125,7 +127,7 @@ app.get('/profile', (req, res) => {
        // user: res.locals.user
     //})
 //})
-app.get('/Recipes', (req, res) => {
+app.get('users/Recipes', (req, res) => {
 console.log(res.locals.user)
    
     res.render('/Recipes.ejs', {
@@ -135,7 +137,7 @@ console.log(res.locals.user)
 
 
 app.use('/users', require('./controllers/users'))
-app.use("/calories", require ("./controllers/calories"))
+app.use("/food", require ('./controllers/food'))
 //app.use("/user_notes", require ("./controllers/user_notes"))
 
 // listen on a port
