@@ -16,16 +16,17 @@ router.get('/search',(req,res) =>{
 })
 //
 router.post('/search', async (req,res) => {
-    const search = req.body.search
-    const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=2&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`
-    console.log(search)
-   // console.log(baseUrl)
-   // console.log(req)
+    
     try {
+        const search = req.body.search
+        console.log(search)
+        const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=2&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`
+  
         const response = await axios.get(baseUrl)
             
         let result = await response.data
-        console.log(result.foodSearchCriteria)
+        result = await result.foods
+        console.log(result);
         res.render('food/results.ejs', { results: result })
       
         // res.send(response.data)      

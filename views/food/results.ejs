@@ -1,27 +1,25 @@
-<%- include('../partials/header.ejs', { user }) %> <%-
-include('../partials/form.ejs') %>
+<%- include('../partials/header.ejs', { user }) %> 
+<%- include('../partials/form.ejs') %>
 
-<% if (results.isArray(results) %> 
-    <% results.forEach(function(result) { %> 
-        <h2><%=result.name%></h2>
-        <ul>
-            <%result.ingredients.forEach(ingredient=>{ %>
-         <li >
-            <%=ingredient%>
-         </li>
-        
-      
-  
-  <%}else{ %>
-    <%results.forEach(function(result)%> 
-        <h2><%= result.name %></h2>
-        <ul>
-            <%result.ingredients.forEach(ingredient=>{ %>
-         <li >
-            <%=ingredient%>
-         </li>
+ 
+<!-- Food name, foodNutrients[], list of ingredients  -->
+   <%results.forEach(result=>{%>
     
- <%}%>  
-  
+    <%result.foodNutrients.forEach(nutrient=>{%>
+        
+        <%})%>
+        <p>Food Name: <%=result.foodName%></p>
+        <p>Food Category: <%=result.foodCategory%></p>
+        <p>Description: <%=result.description%></p>
+        
+        <p>Market Country: <%=result.marketCountry%></p>
+        <p>ServingSize: <%=result.servingSize%></p>
+        <p>ModifiedDate: <%=result.modifiedDate%></p>
+        <p>Engredients: <%=result.ingredients%></p>
+        <p>BrandName: <%=result.brandName%></p>
+        <p>BrandOwner: <%=result.brandOwner%></p>
+   <%})%>
+   <button class="btn btn-primary" type="save" value="Save" style="font-size: 25px; margin-left: 2000px;">Save Food</button>
+
 
 <%- include('../partials/footer.ejs') %>
