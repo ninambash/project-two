@@ -1,6 +1,68 @@
 <%- include('../partials/header.ejs', { user }) %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
 
-<h3>Delete account</h3>
-<h3>Privacy policy</h3>
-<h3>Change pas</h3>
+
+
+  <body>
+  <section class="section">
+    <header>
+        <h1 style="text-align: center; margin-bottom: 100px; color: green;">Settings</h1>
+      </header>
+    
+    
+      <main style="text-align: center; display: flex; justify-content: space-between; margin-left: 100px;" >
+        <section id="general">
+          <h2 style="color: green; margin-bottom: 10px; margin-left: 29px;">General Settings</h2>
+          <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <br>
+            <input type="submit" value="Save Changes">
+          </form>
+        </section>
+    
+        <section id="security" style="margin-right: 300px;">
+          <h2 style="color: green; margin-bottom: 10px; margin-left: 29px;">Security Settings</h2>
+          <form>
+            <label for="two-factor">Two-Factor Authentication:</label>
+            <input type="checkbox" id="two-factor" name="two-factor">
+            <br>
+            <label for="fingerprint">Fingerprint Login:</label>
+            <input type="checkbox" id="fingerprint" name="fingerprint">
+            <br>
+            <input type="submit" value="Save Changes">
+          </form>
+        </section>
+    
+        <section id="notifications" style="margin-right: 300px;">
+          <h2 style="color: green; margin-bottom: 10px;">Notification Settings</h2>
+          <form>
+            <label for="email-notifications">Email Notifications:</label>
+            <input type="checkbox" id="email-notifications" name="email-notifications">
+            <br>
+            <label for="push-notifications">Push Notifications:</label>
+            <input type="checkbox" id="push-notifications" name="push-notifications">
+            <br>
+            <input type="submit" value="Save Changes">
+          </form>
+        </section>
+      </main>
+    
+  </section>
+  </body>
+</html>
+
 <%- include('../partials/footer.ejs') %>

@@ -1,0 +1,18 @@
+<!-- show a list of foods that match the user query -->
+<div class ="container">
+    <h1 class="display-6 text-success" >food :</h1>
+    
+    <div>
+        <ul>
+           <% foods.forEach(food=>{ %>
+                <li><div class=" text-success fw-semibold"> <%= food.name %></div> 
+                    <div class="fw-light text-secondary"> <%= food.type %> </div>
+                    <div class="fw-light text-secondary"> <%= food.nutrients %> </div>
+                    <div class="fw-light text-secondary"> <%= food.portion %> </div>
+                <a href="/results/details/<%= food.id %>" class="btn btn-sm btn-outline-success"> More Information</a>
+                <br>
+            </li>
+           <% })%>
+        </ul>
+    </div>
+    </div>

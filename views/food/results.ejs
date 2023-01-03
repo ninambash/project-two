@@ -1,10 +1,27 @@
-<%- include('../partials/header.ejs', { user }) %>
-<%- include('../partials/form.ejs') %>
+<%- include('../partials/header.ejs', { user }) %> <%-
+include('../partials/form.ejs') %>
 
-<h2>FOOD RESULT ejs</h2>
-
-
-<h2><%= results.foods%> </h2>
-
+<% if (results.isArray(results) %> 
+    <% results.forEach(function(result) { %> 
+        <h2><%=result.name%></h2>
+        <ul>
+            <%result.ingredients.forEach(ingredient=>{ %>
+         <li >
+            <%=ingredient%>
+         </li>
+        
+      
+  
+  <%}else{ %>
+    <%results.forEach(function(result)%> 
+        <h2><%= result.name %></h2>
+        <ul>
+            <%result.ingredients.forEach(ingredient=>{ %>
+         <li >
+            <%=ingredient%>
+         </li>
+    
+ <%}%>  
+  
 
 <%- include('../partials/footer.ejs') %>

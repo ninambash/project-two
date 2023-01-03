@@ -8,18 +8,24 @@ const router = express.Router()
 
 
 //ROUTES
+
 router.get('/search',(req,res) =>{
     res.render('food/search.ejs',{
         user:res.locals.user
     })
 })
+//
 router.post('/search', async (req,res) => {
     const search = req.body.search
     const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=2&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`
+    console.log(search)
+   // console.log(baseUrl)
+   // console.log(req)
     try {
         const response = await axios.get(baseUrl)
             
         let result = await response.data
+        console.log(result.foodSearchCriteria)
         res.render('food/results.ejs', { results: result })
       
         // res.send(response.data)      

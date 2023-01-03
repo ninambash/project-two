@@ -1,4 +1,5 @@
 <%- include('partials/header.ejs', { user }) %> 
+<%- include('partials/form.ejs') %>
 
 <!DOCTYPE html>
 <html>
@@ -14,28 +15,10 @@
   <body>
   <section class="section">
    
-      <article class="panel is-link">
-        <p class="panel-heading" style="background-color: #48c78e;">
-          Your Daily Summary
-        </p>
-        <p class="panel-tabs">
-          <a class="is-active">All</a>
-          <a>Add Food</a>
-          <a>Add Exercise</a>
-          <a>Total Cal</a>
-          <a>Today's Nutrients</a>
-        </p>
-        <div class="panel-block">
-            <p class="control has-icons-left">
-                <input class="input is-link" type="text" placeholder="Search">
-                <span class="icon is-left">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                </span>
-            </p>
-        </div>
-        <figure class="image is-128x128">
-            <img src="https://bulma.io/images/placeholders/256x256.png">
-          </figure>
+<button class="btn btn-primary" type="save" value="Save" style="font-size: 25px; margin-left: 2000px;">Save Food</button>
+
+       
+        
         
   </section>
   </body>

@@ -8,21 +8,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hello Bulma!</title>
+        <title>Hello User!</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     </head>
     <body>
         <section class="section">
             
-            <h3> Profile</h3>
+            <h3 style="margin-left: 200px; margin-bottom: 10px;">Your Profile</h3>
         
         <figure class="image is-128x128">
-            <img src="https://bulma.io/images/placeholders/256x256.png">
+            <img src="https://thisartworkdoesnotexist.com/" style="margin-left: 200px;"  >
         </figure>
         
-        <h3>Name  <%= user.name %></h3>
-        <h3>age  <%= user.age %></h3>
-        <h3>location</h3>
+        <h3 style="margin-left: 500px; margin-top: -100px;">Name: <%=user.name %></h3>
+        <h3 style="margin-left: 500px;">Age:  <%=user.age %></h3>
+        <h3 style="margin-left: 500px;">Location:<% user.location %> </h3>
       
         
   </section>
