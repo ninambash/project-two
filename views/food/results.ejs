@@ -4,22 +4,23 @@
  
 <!-- Food name, foodNutrients[], list of ingredients  -->
    <%results.forEach(result=>{%>
+      <a href="/food/<%=result.fdcId%> ">See details</a>
     
-    <%result.foodNutrients.forEach(nutrient=>{%>
-        
-        <%})%>
-        <p>Food Name: <%=result.foodName%></p>
+    
+       
         <p>Food Category: <%=result.foodCategory%></p>
         <p>Description: <%=result.description%></p>
-        
         <p>Market Country: <%=result.marketCountry%></p>
         <p>ServingSize: <%=result.servingSize%></p>
-        <p>ModifiedDate: <%=result.modifiedDate%></p>
         <p>Engredients: <%=result.ingredients%></p>
-        <p>BrandName: <%=result.brandName%></p>
-        <p>BrandOwner: <%=result.brandOwner%></p>
+       
+       
    <%})%>
-   <button class="btn btn-primary" type="save" value="Save" style="font-size: 25px; margin-left: 2000px;">Save Food</button>
+   
+
+
+
+   <button class="btn btn-primary" type="save" value="Save" style="font-size: 25px; margin-left: 100px;margin-top: 10px;">save food</button>
 
 
 <%- include('../partials/footer.ejs') %>

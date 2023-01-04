@@ -3,7 +3,7 @@ Splendid
 
 
 #  Pitch
-Splendid is a Medical app that helps Nursing and Medical students do a quick refrence of what type of disease the patient is likely to be suffering from based on the symptoms they are showing and search query.
+Splendid is a grocery app that helps users find products and  do a quick refrence of what type of product, product category, country of origin and Ingredients based on search query.
 
 
 
@@ -13,7 +13,7 @@ Splendid is a Medical app that helps Nursing and Medical students do a quick ref
 2. In your terminal run command: npm install (this will install all needed packages)<br>
 3. You will need to install a few file for functionality. In your terminal: touch .gitignore .env<br>
 4. Add node_modules and .env to your .gitignore file<br>
-5.You will need an API key for Lexigram<br>
+5.You will need an API key for <br>
 6.Create the database and migrate the models into it by running the following commands:<br> sequelize db:migrate<br>
 7.Run the nodemon and navigate to localHost:3000 in your browser and you are all set! Enjoy!<br>
 
@@ -63,8 +63,8 @@ As a user, I want an opportunity to delete the user if they are cured<br>
 
 
 # stretch goals
-Add medication table<br>
-Keeping track of the desease and how many people are suffering from that desease <br>
+Add calc table<br>
+Keeping track of how how many people got <br>
 Styling the app to look nicer
 
 

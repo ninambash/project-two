@@ -149,6 +149,16 @@ router.get('/settings', (req, res) => {
         })
     }
 })
+router.post('/comment', (req, res) => {
+    // if the user is not logged in -- they are not allowed to be here
+    if (!res.locals.user) {
+        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
+    } else {
+        res.render('food/comment.ejs', {
+            user: res.locals.user
+        })
+    }
+})
 
 // export the router
 module.exports = router

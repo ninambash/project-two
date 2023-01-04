@@ -1,0 +1,33 @@
+<%- include('../partials/header', { user }) %>    
+        <p>Food Category: <%=food.foodCategory%></p>
+        <p>Description: <%=food.description%></p>
+        <p>Market Country: <%=food.marketCountry%></p>
+        <p>ServingSize: <%=food.servingSize%></p>
+        <p>Engredients: <%=food.ingredients%></p>
+
+
+
+
+
+
+<p><%= food.content %></p>
+        
+
+<h3 style=" margin-left: 100px; margin-bottom: 5px; color: black;">Your Comment</h3>
+
+<form method="POST" action="/articles/<%= food.id %>/comment">
+  <label for="name">Name:</label>
+  <input id="name" type="text" placeholder="Your Name here..." name="name" required />
+
+  <label for="content">Comment:</label>
+  <input id="content" type="text" placeholder="Enter Your Comment..." name="content" required />
+
+  <button type="submit">Add Comment</button>
+</form>
+
+
+
+
+<%- include('../partials/footer') %>
+
+

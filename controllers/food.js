@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const axios = require('axios')
+const { route } = require('./users')
 const router = express.Router()
 
 
@@ -13,6 +14,25 @@ router.get('/search',(req,res) =>{
     res.render('food/search.ejs',{
         user:res.locals.user
     })
+})
+router.get('/:id', async(req,res) =>{
+    try {
+        const search = req.query.id
+        console.log(search)
+        const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=2&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`
+  
+        const response = await axios.get(baseUrl)
+            
+        let food = await response.data
+        food = await food.foods
+        console.log(food);
+        res.render('food/details.ejs', { food: food })
+        
+    } catch (error) {
+        console.log('🔥', error)
+        
+    }
+   
 })
 //
 router.post('/search', async (req,res) => {
@@ -37,8 +57,13 @@ router.post('/search', async (req,res) => {
    
 
     })
+    
 
-
+    router.get("/comment", (req, res) => {
+        res.render("food/comments.ejs", {
+          user: res.locals.user,
+        });
+      });
 
 
 
