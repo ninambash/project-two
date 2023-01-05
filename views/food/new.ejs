@@ -1,21 +1,11 @@
 <!-- displays a form that allows the user to add a new food to their favorites -->
-<h2> Add your food here</h2>
-
-<form method="POST" action="/pubs">
-    <div>
-        <label for="pubName">Name:</label>
-        <input id="pubName" type="text" name="name">
-    </div>
-    <div>
-        <label for="pubStreet"> food type:</label>
-        <input id="pubStreet" type="text" name="street">
-    </div>
-    <div>
-        <label for="pubCity"> food ingridients:</label>
-        <input id="pubCity" type="text" name="city">
-    </div>
-    
-
-    <button type="submit">Add food</button>
-
-</form>
+<div>
+    <% comments.forEach(comment => { %>
+      <p><%= comment.name %> has this to say: </p>
+      <p><%= comment.content %></p>
+    <% }) %>
+  </div>
+  
+  <hr />
+  
+  <a href="/">&larr; Back Home</a>

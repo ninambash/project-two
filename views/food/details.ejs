@@ -11,20 +11,51 @@
 
 
 <p><%= food.content %></p>
+
+<button type="save">Add to Favorite</button>
+<button type="save">Remove from Favorite</button>
+
+
+
+
+
+
+
+
+
+
+
+
         
 
 <h3 style=" margin-left: 100px; margin-bottom: 5px; color: black;">Your Comment</h3>
 
-<form method="POST" action="/articles/<%= food.id %>/comment">
+<form method="POST" action="/comment/<%= food.fdcId %>/comment">
   <label for="name">Name:</label>
   <input id="name" type="text" placeholder="Your Name here..." name="name" required />
 
   <label for="content">Comment:</label>
   <input id="content" type="text" placeholder="Enter Your Comment..." name="content" required />
-
+<input type="hidden" value="<%=food.id%>" name="foodid">
   <button type="submit">Add Comment</button>
 </form>
+<!-----------------------updating---------------------------------->
+<input type="hidden" value="<%=food.id%>" name="foodid">
+  <button type="submit">update comment</button>
+</form>
+<!-----------------------delete---------------------------------->
+<input type="hidden" value="<%=food.id%>" name="foodid">
+  <button type="submit">Delete comment</button>
+</form>
 
+
+<h2>comments are home</h2>
+
+  
+
+
+
+<a href="/">&larr; Back Home</a>
 
 
 
