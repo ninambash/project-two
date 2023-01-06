@@ -59,6 +59,8 @@ app.get("/profile", (req, res) => {
     user: res.locals.user,
   });
 });
+
+
 app.get("/", (req, res) => {
   console.log(res.locals.user);
   res.render("home.ejs", {

@@ -3,9 +3,11 @@ sequelize model:create --name user --attributes email:string,password:string
 sequelize model:create --name food --attributes name:string,category:string,description:text,userId:integer
 sequelize model:create --name comment --attributes name:string,content:text,foodId:integer,userId:integer
 
+sequelize model:create --name fave --attributes description:text,userId:integer,foodId:integer
 
 
 
+sequelize model:create --name fave --attributes description:text,userId:integer,foodId:integer
 
 
 

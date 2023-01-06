@@ -102,7 +102,18 @@ router.get("/logout", (req, res) => {
 
 
 
-
+// GET/ faves READs all favorited foods and displays to the user
+router.get ("/faves", async (req, res)=>{
+  try{
+      // console.log(res.locals.user)
+      res.render("food/faves.ejs",{
+          user:res.locals.user
+      })
+  } catch(error){
+      console.log(error)
+      res.send("server error")
+  }
+})
 
 
 
