@@ -6,25 +6,26 @@
         <p>ServingSize: <%=food.servingSize%></p>
         <p>ingredients: <%=food.ingredients%></p>
               <p><%= food.content %></p>
-
+ 
 <form  action="/food/faves" method="POST" >
     <input class="form-control" type="hidden" styletype="text" id="search" name="description"  value="<%=food.description%>" 
     style="width:350px; height:30px; font-size:16px;padding:10px;border: 2px solid rgb(84, 54, 155); border-radius: 10px; " >
     <br>
-    <input class="form-control" type="hidden" styletype="text" id="search" name="userId"  value="<%=food.userId%>" >
-    <input class="form-control" type="hidden" styletype="text" id="search" name="foodId"  value="<%=food.fdcId%>" >
+    <input class="form-control" type="hidden"  id="search" name="userId"  value="<%=food.userId%>" >
+    <input class="form-control" type="hidden"  id="search" name="foodId"  value="<%=food.fdcId%>" >
 <button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add to favorite</button>
 
   </form>
 
 
 
-<!-------------------------------Adding comments------------------------------------------> 
+<!--------------Addingcomments--------------------------------------> 
 <form  action="/food/comments" method="POST" >
   <input class="form-control" type="hidden" styletype="text" id="search" name="description"  value="<%=food.description%>" 
     style="width:350px; height:30px; font-size:16px;padding:10px;border: 2px solid rgb(84, 54, 155); border-radius: 10px; " >
     <br>
-    <input class="form-control" type="hidden" styletype="text" id="search" name="userId"  value="<%=food.userId%>" >
+    
+    <input class="form-control"  id="search" name="userId"  value="<%=food.userId%>" >
     <input class="form-control" type="hidden" styletype="text" id="search" name="foodId"  value="<%=food.fdcId%>" >
 
 <button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add comment</button>

@@ -115,17 +115,7 @@ router.get("/faves", async (req, res) => {
       console.log(err);
     }
   });
-///DELETE FROM FAVE
-// router.delete('/fave:idx',(req,res) => {
-//     db.fave.destroy({
-//       where:{
-              
-//         userId:res.locals.user.id
-//   }})
-//     .then( ()=>{
-//       res.redirect("/users/faves")
-//     })
-//   })
+
 // DELETE localhost:8000/food/favorites/:id delete a favorited food by user
 router.delete("/faves/:id", async (req, res) => {
   try {

@@ -22,7 +22,7 @@ router.get("/:id", async (req, res) => {
     const response = await axios.get(baseUrl);
 
     //console.log(response.data);
-    res.render("food/details.ejs", { food: response.data.foods[0] });
+    res.render("food/details.ejs", { food: response.data.foods[0]});
   } catch (error) {
     console.log("🔥", error);
   }
@@ -76,6 +76,45 @@ router.post ("/faves", async (req, res)=>{
       res.send("server error")
   }
 })
+
+// router.post("/comments", async(req,res) => {
+//   try {
+//     const response = await axios.get(baseUrl)
+//     const food = response.data.foods[0] 
+//     const comments = await db.comment.findAll({
+      
+//       where:{
+//             foodId:req.params.id
+//             //userId:res.locals.user.id
+//       }
+//     })
+//     console.log('These are the comments', comments)
+//     res.render("food/comments.ejs", { food:response.data.foods[0], comments });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+// router.get('/:id/comments',async(req,res)=>{
+//   try{
+
+  
+//   const comments = await db.comment.findOrCreate({
+//     where: { foodId: req.params.id }
+//   });
+//   // Send the comments as a response
+//   res.send({ comments });
+// } catch (error) {
+//   console.error(error);
+//   res.status(500).send("Error retrieving comments");
+// }
+// });
+ 
+
+
+
+
+
+
 // GET localhost:8000/food/favorites see all fave foods
 // router.get("/faves", async (req, res) => {
 //   try {
