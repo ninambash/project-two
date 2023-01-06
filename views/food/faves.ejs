@@ -1,3 +1,42 @@
-<!--------------hospital app--------------------------------------------------->
 
-<h1>Hello World</h1>
+
+<%- include('../partials/header', { user }) %>
+<div class="cards-container">
+    <% for (const fave of faves) { %>
+      <div class="card d-inline-block" style="width: 20rem;">
+        <div class="card-body">
+         <h5 class="card-title"><a  href="/food/<%=fave.foodId %>  "><%= fave.description %> </a>
+          <form action="/food/<%=faves.foodId%>?_method=DELETE" method="POST">
+            <button class="btn btn-warning" type="submit">Delete</button>
+          </form>
+        
+        </h5> 
+          
+    
+    <%}%>
+    
+    
+
+    
+    
+  
+ 
+
+  
+
+  
+
+
+  
+
+  
+
+  <a href="/">&larr; Back Home
+
+  
+
+
+
+
+
+  

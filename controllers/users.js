@@ -99,22 +99,77 @@ router.get("/logout", (req, res) => {
   res.clearCookie("userId");
   res.redirect("/");
 });
-
-
-
 // GET/ faves READs all favorited foods and displays to the user
-router.get ("/faves", async (req, res)=>{
-  try{
-      // console.log(res.locals.user)
-      res.render("food/faves.ejs",{
-          user:res.locals.user
+router.get("/faves", async (req, res) => {
+    try {
+      const faves = await db.fave.findAll({
+        
+        where:{
+              
+              userId:res.locals.user.id
+        }
       })
-  } catch(error){
-      console.log(error)
-      res.send("server error")
+      console.log('These are the faves', faves)
+      res.render("food/faves.ejs", { faves });
+    } catch (err) {
+      console.log(err);
+    }
+  });
+///DELETE FROM FAVE
+// router.delete('/fave:idx',(req,res) => {
+//     db.fave.destroy({
+//       where:{
+              
+//         userId:res.locals.user.id
+//   }})
+//     .then( ()=>{
+//       res.redirect("/users/faves")
+//     })
+//   })
+// DELETE localhost:8000/food/favorites/:id delete a favorited food by user
+router.delete("/faves/:id", async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const favorite = await db.food.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+     console.log(deletefavorite);
+    
+    if (food.length > 0) {
+      res.redirect(req.get("referer"));
+    } else {
+      res.redirect('/users/faves')
+    }
+    
+  } catch (err) {
+    console.log(err);
   }
-})
+});
 
+
+
+
+
+
+
+
+
+// router.get ("/faves", async (req, res)=>{
+//   try{
+//       // console.log(res.locals.user)
+//       res.render("food/faves.ejs",{
+//           user:res.locals.user
+
+//           /////querrythe data
+//       })
+//   } catch(error){
+//       console.log(error)
+//       res.send("server error")
+//   }
+// })
+//GET/ faves READs all favorited foods and displays to the user
 
 
 
@@ -227,6 +282,10 @@ router.get("/settings", (req, res) => {
     });
   }
 });
+
+
+
+
 
 // export the router
 module.exports = router;

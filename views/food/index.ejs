@@ -1,0 +1,19 @@
+
+
+<!-----------------------------Delete food from favorites------------------>
+<form method="GET" action="/food">
+    <label for="nameFilter">Filter by Name</label>
+    <input id="nameFilter" type="text" name="nameFilter">
+    <input type="submit">
+  </form>
+  
+  
+  <ul>
+    <% foods.forEach((food, index) => { %>
+    <li><%= food.category %> is a <%= food.description %>
+        <form method="POST" action="/food/<%= index %>/?_method=DELETE">
+            <input type="submit" value="Delete">
+        </form>
+    </li>
+    <% }); %>
+  </ul>

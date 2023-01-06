@@ -8,6 +8,8 @@ const cookieParser = require("cookie-parser");
 const db = require("./models");
 const crypto = require("crypto-js");
 const axios = require("axios");
+const methodOverride = require('method-override');
+
 // app config
 const app = express();
 
@@ -22,6 +24,7 @@ app.use(cookieParser());
 //app.use(methodOverride("_method"))
 app.use(express.static("public"));
 //app.use(methodOverride("_method"))
+app.use(methodOverride('_method'));
 
 // custom auth middleware that checks the cookies for a user id
 // and it finds one, look up the user in the db
@@ -33,7 +36,7 @@ app.use(async (req, res, next) => {
       const decryptedId = crypto.AES.decrypt(
         req.cookies.userId,
         process.env.SECRET
-      );
+        );
       const decryptedString = decryptedId.toString(crypto.enc.Utf8);
       // the user is logged in, lets find them in the db
       const user = await db.user.findByPk(decryptedString);
@@ -81,7 +84,7 @@ app.use((req, res, next) => {
 
 app.use("/users", require("./controllers/users"));
 app.use("/food", require("./controllers/food"));
-app.use("/comment", require("./controllers/comment"));
+app.use("/comments", require("./controllers/comments"));
 
 //app.use("/user_notes", require ("./controllers/user_notes"))
 

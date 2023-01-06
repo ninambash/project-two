@@ -54,7 +54,7 @@ router.get("users/Recipes", (req, res) => {
     user: res.locals.user,
   });
 });
-///////////////////trying out the post fave
+//POST localhost:8000/food/favorites POST favorited foods by user into db
 router.post ("/faves", async (req, res)=>{
   try{
       console.log("faves",req.body)
@@ -76,6 +76,25 @@ router.post ("/faves", async (req, res)=>{
       res.send("server error")
   }
 })
+// GET localhost:8000/food/favorites see all fave foods
+// router.get("/faves", async (req, res) => {
+//   try {
+//     const faves = await db.fave.findAll({
+//       where:{
+            
+//             userId:res.locals.user.id
+            
+        
+
+//       }
+//     })
+    
+//     res.render("food/faves.ejs", { faves });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+
 
 
 
