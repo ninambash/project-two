@@ -110,7 +110,7 @@ router.get("/faves", async (req, res) => {
         },
         include:[db.comment]
       })
-      console.log('These are the faves', faves)
+      //console.log('These are the faves', faves)
       res.render("food/faves.ejs", { faves });
     } catch (err) {
       console.log(err);
@@ -119,20 +119,22 @@ router.get("/faves", async (req, res) => {
 
 // DELETE localhost:8000/food/favorites/:id delete a favorited food by user
 router.delete("/faves/:id", async (req, res) => {
+
   try {
-    console.log(req.params.id);
-    const favorite = await db.food.destroy({
+    console.log(db.user.id)
+    console.log(req.query.id);
+    const favorite = await db.fave.destroy({
       where: {
-        id: req.params.id,
-      },
+        foodId: req.params.id
+      }
     });
-     console.log(deletefavorite);
+     //console.log(deletefavorite);
     
-    if (food.length > 0) {
-      res.redirect(req.get("referer"));
-    } else {
-      res.redirect('/users/faves')
-    }
+     res.redirect(req.get("referer"));
+    // if (food.length > 0) {
+    // } else {
+    //   res.redirect('/users/faves')
+    // }
     
   } catch (err) {
     console.log(err);

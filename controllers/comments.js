@@ -54,6 +54,25 @@ router.get("/comments", async (req, res) => {
     }
   });
 
+// ********** ROUTE to EDIT COMMENTS*****************************
+// PUT  new data into the the comments
+router.put ("/comments/:id", (req, res)=>{
+  db.comments.update({
+    // reassigns 
+    userId: res.locals.user.id,
+    comments: req.body.comments
+  },
+  {
+  where : {
+    // id to find data in db
+    id:req.params.id
+  }
+  })
+  res.redirect("/users/faves")
+})
+
+
+
 
 
 

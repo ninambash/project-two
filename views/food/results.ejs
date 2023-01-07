@@ -1,22 +1,24 @@
 <%- include('../partials/header.ejs', { user }) %> 
 <%- include('../partials/form.ejs') %>
 
- 
-<!-- Food name, foodNutrients[], list of ingredients  -->
-   <%results.forEach(result=>{%>
-      <a href="/food/<%=result.fdcId%> ">See details</a>
-    
-    
+ <div style=" margin-left: 400px;">
+
+    <!-- Food name, foodNutrients[], list of ingredients  -->
+       <%results.forEach(result=>{%>
+          <a href="/food/<%=result.fdcId%> ">See details</a>
+        
+        
+           
+            <p>Food Category: <%=result.foodCategory%></p>
+            <p>Description: <%=result.description%></p>
+            <p>Market Country: <%=result.marketCountry%></p>
+            <p>ServingSize: <%=result.servingSize%></p>
+            <p>Engredients: <%=result.ingredients%></p>
+           
+           
+       <%})%>
        
-        <p>Food Category: <%=result.foodCategory%></p>
-        <p>Description: <%=result.description%></p>
-        <p>Market Country: <%=result.marketCountry%></p>
-        <p>ServingSize: <%=result.servingSize%></p>
-        <p>Engredients: <%=result.ingredients%></p>
-       
-       
-   <%})%>
-   
+ </div>
 
 
 

@@ -1,55 +1,41 @@
-
-
 <%- include('../partials/header', { user }) %>
-<div class="cards-container">
-    <% for (const fave of faves) { %>
-      <div class="card d-inline-block" style="width: 20rem;">
-        <div class="card-body">
-         <h5 class="card-title"><a  href="/food/<%=fave.foodId %>  "><%= fave.description %> </a>
-          <form action="/food/<%=faves.foodId%>?_method=DELETE" method="POST">
-            <button class="btn btn-warning" type="submit">Delete</button>
-          </form>
-        
-        </h5> 
-          
-    
-        <form  action="/comments/food/<%=fave.id%>" method="POST" >
+<div class="cards-container" style="margin-left: 500px;">
+  <% for (const fave of faves) { %>
+  <div class="card d-inline-block" style="width: 30rem;height: 10rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <a href="/food/<%=fave.foodId %>  "><%= fave.description %> </a>
+      </h5>
      
-        <input class="form-control"  styletype="text"   name="content" >
 
-    
-    <button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add comment</button>
-    </form>
-    <%fave.comments.forEach(comment => {%>
-      <%=comment.content %> 
+      <form action="/comments/food/<%=fave.id%>" method="POST">
+        <input class="form-control" styletype="text" name="content" />
 
-    <%}) %> 
-    <%}%>
-
-
-    
-    
-
-    
-    
-  
- 
-
-  
-
-  
-
-
-  
+        <button
+          class="btn btn-primary"
+          type="submit"
+          value="Submit"
+          style="border-radius: 10px"
+        >
+           comments
+        </button>
+      </form>
+      <%fave.comments.forEach(comment => {%> <%=comment.content %> <%}) %>
+      <form action="/food/comments<%=fave.foodId%>"method="POST">
+        <button class="btn btn-warning" type="submit">Edit comment</button>
+      </form>
+    </form>   
+    <form  method="POST" action="/users/faves/<%= fave.foodId %>/?_method=DELETE">
+      <p><%=fave.foodId%> DEl</p>
+      ///////////
+      <input type="hidden" name="_method" value="DELETE">del
+    <input type="submit" class="btn btn-outline-danger btn-sm" value="<%=fave.foodId%>">
+    /////////
 
   
+      <%}%>
 
-  <a href="/">&larr; Back Home
-
-  
-
-
-
-
-
-  
+      <a href="/">&larr; Back Home </a>
+    </div>
+  </div>
+</div>

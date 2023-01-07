@@ -1,4 +1,5 @@
-<%- include('../partials/header', { user }) %>   
+<%- include('../partials/header', { user }) %>  
+<div style="width: 750px;margin-left:250px;"> 
  
         <p>Food Category: <%=food.foodCategory%></p>
         <p>Description: <%=food.description%></p>
@@ -6,32 +7,22 @@
         <p>ServingSize: <%=food.servingSize%></p>
         <p>ingredients: <%=food.ingredients%></p>
               <p><%= food.content %></p>
+
+</div>
+   <form action="/food/faves" method="POST" >
+       <input class="form-control" type="hidden" styletype="text" id="search" name="description"  value="<%=food.description%>" 
+       style="width:350px; height:30px; font-size:16px;padding:10px;border: 2px solid rgb(84, 54, 155); border-radius: 10px; " >
+       <br>
+       <input class="form-control" type="hidden"  id="search" name="userId"  value="<%=food.userId%>" >
+       <input class="form-control" type="hidden"  id="search" name="foodId"  value="<%=food.fdcId%>" >
+   <button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add to favorite</button>
+   
+     </form>
+
+
+
+
  
-<form  action="/food/faves" method="POST" >
-    <input class="form-control" type="hidden" styletype="text" id="search" name="description"  value="<%=food.description%>" 
-    style="width:350px; height:30px; font-size:16px;padding:10px;border: 2px solid rgb(84, 54, 155); border-radius: 10px; " >
-    <br>
-    <input class="form-control" type="hidden"  id="search" name="userId"  value="<%=food.userId%>" >
-    <input class="form-control" type="hidden"  id="search" name="foodId"  value="<%=food.fdcId%>" >
-<button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add to favorite</button>
-
-  </form>
-
-
-
-<!--------------Addingcomments--------------------------------------> 
-<form  action="/comments/food/<%=food.id%>" method="POST" >
-  <p>Test</p>
-  <input class="form-control" type="hidden" styletype="text" id="search" name="description"  value="<%=food.description%>" 
-    style="width:350px; height:30px; font-size:16px;padding:10px;border: 2px solid rgb(84, 54, 155); border-radius: 10px; " >
-    <br>
-    
-    
-    <input class="form-control"  styletype="text"   name="content" >
-
-<button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add comment</button>
-</form>
-
 
 
 
