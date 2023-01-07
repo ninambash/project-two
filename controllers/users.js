@@ -140,6 +140,36 @@ router.delete("/faves/:id", async (req, res) => {
     console.log(err);
   }
 });
+//PUT /users/profile -- allows user to UPDATE password
+router.put('/:id', async (req, res) => {
+  try {
+      const changePassword = await db.user.update(
+          {password: bcrypt.hashSync(req.body.password, 12)}, {
+          where: {
+              email: req.body.email
+          }
+      })
+      res.redirect('/') 
+  } catch(error) {
+      console.log(error.message)
+      res.status(500).send('Server error on UPDATE path 📺')
+  }
+})
+//PUT /users/profile -- allows user to UPDATE password
+router.put('/:id', async (req, res) => {
+  try {
+      const changePassword = await db.user.update(
+          {password: bcrypt.hashSync(req.body.password, 12)}, {
+          where: {
+              email: req.body.email
+          }
+      })
+      res.redirect('/') 
+  } catch(error) {
+      console.log(error.message)
+      res.status(500).send('Server error on UPDATE path 📺')
+  }
+})
 
 
 
