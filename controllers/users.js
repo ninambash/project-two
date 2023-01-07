@@ -107,7 +107,8 @@ router.get("/faves", async (req, res) => {
         where:{
               
               userId:res.locals.user.id
-        }
+        },
+        include:[db.comment]
       })
       console.log('These are the faves', faves)
       res.render("food/faves.ejs", { faves });

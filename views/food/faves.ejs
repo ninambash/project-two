@@ -13,7 +13,20 @@
         </h5> 
           
     
+        <form  action="/comments/food/<%=fave.id%>" method="POST" >
+     
+        <input class="form-control"  styletype="text"   name="content" >
+
+    
+    <button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add comment</button>
+    </form>
+    <%fave.comments.forEach(comment => {%>
+      <%=comment.content %> 
+
+    <%}) %> 
     <%}%>
+
+
     
     
 

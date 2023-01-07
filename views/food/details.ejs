@@ -20,13 +20,14 @@
 
 
 <!--------------Addingcomments--------------------------------------> 
-<form  action="/food/comments" method="POST" >
+<form  action="/comments/food/<%=food.id%>" method="POST" >
+  <p>Test</p>
   <input class="form-control" type="hidden" styletype="text" id="search" name="description"  value="<%=food.description%>" 
     style="width:350px; height:30px; font-size:16px;padding:10px;border: 2px solid rgb(84, 54, 155); border-radius: 10px; " >
     <br>
     
-    <input class="form-control"  id="search" name="userId"  value="<%=food.userId%>" >
-    <input class="form-control" type="hidden" styletype="text" id="search" name="foodId"  value="<%=food.fdcId%>" >
+    
+    <input class="form-control"  styletype="text"   name="content" >
 
 <button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px;">Add comment</button>
 </form>

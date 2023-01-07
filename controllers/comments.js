@@ -8,19 +8,17 @@ const db = require("../models");
 const router = express.Router();
 
 // ********** ROUTES  TO ADD AND EDIT COMMENTS*****************************
-router.post("/comments", async(req,res) => {
+router.post("/food/:id", async(req,res) => {
     try {
-      const response = await axios.get(baseUrl)
-      const food = response.data.foods[0] 
-      const comments = await db.comment.findAll({
-        
-        where:{
-              foodId:req.params.id
-              //userId:res.locals.user.id
-        }
+      // const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=1&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`;
+      // const response = await axios.get(baseUrl)
+      // const food = response.data.foods[0] 
+     
+      await res.locals.user.createComment({
+        faveId:req.params.id,
+        content:req.body.content,
       })
-      console.log('These are the comments', comments)
-      res.render("food/comments.ejs", { food:response.data.foods[0], comments });
+      res.redirect(`/users/faves`)
     } catch (err) {
       console.log(err);
     }
@@ -46,7 +44,7 @@ router.get("/comments", async (req, res) => {
         
         where:{
               
-              userId:res.locals.user.id
+              userId:req.params.userId
         }
       })
       console.log('These are the comments', comments)

@@ -68,7 +68,7 @@ router.post ("/faves", async (req, res)=>{
       })
       // associate food  with user favorites
       // food.addUser(req.locals.user)
-      await res.locals.user.addFood(food.id)
+      await res.locals.user.addFave(food.id)
       // console.log("fav 2 test")
       res.redirect("/users/faves")
   } catch(error) {
