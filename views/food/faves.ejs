@@ -21,21 +21,19 @@
         </button>
       </form>
       <%fave.comments.forEach(comment => {%> <%=comment.content %> <%}) %>
-      <form action="/food/comments<%=fave.foodId%>"method="POST">
-        <button class="btn btn-warning" type="submit">Edit comment</button>
-      </form>
+      
     </form>   
     <form  method="POST" action="/users/faves/<%= fave.foodId %>/?_method=DELETE">
-      <p><%=fave.foodId%> DEl</p>
-      ///////////
-      <input type="hidden" name="_method" value="DELETE">del
-    <input type="submit" class="btn btn-outline-danger btn-sm" value="<%=fave.foodId%>">
-    /////////
+      
+      
+      <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" class="btn btn-outline-danger btn-sm" value="DELETE">
+    
 
   
       <%}%>
 
-      <a href="/">&larr; Back Home </a>
     </div>
   </div>
 </div>
+<a style="margin-top: -200px;"href="/">&larr; Back Home </a>
