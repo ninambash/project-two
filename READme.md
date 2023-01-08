@@ -3,7 +3,7 @@ Splendid
 
 
 #  Pitch
-Splendid is a grocery app that helps users find products and  do a quick refrence of what type of product, product category, country of origin and Ingredients based on search query.
+Splendid is a grocery app that helps users find food amd  and  do a quick refrence of what type of product, product category, country of origin and Ingredients based on search query.
 
 
 

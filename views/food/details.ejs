@@ -1,28 +1,19 @@
-<%- include('../partials/header', { user }) %>  
-<div style="width: 750px;margin-left:250px;"> 
- 
-        <p>Food Category: <%=food.foodCategory%></p>
+<%- include('../partials/header', { user }) %>
+
+
+
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-half">
+    <p class="bd-notification is-primary">
+      <code class="html"><p>Food Category: <%=food.foodCategory%></p>
         <p>Description: <%=food.description%></p>
         <p>Market Country: <%=food.marketCountry%></p>
         <p>ServingSize: <%=food.servingSize%></p>
-        <p>ingredients: <%=food.ingredients%></p>
-              <p><%= food.content %></p>
-
+        <p><%= food.content %></p></code><br>
+    </p>
+  </div>
 </div>
-   <form action="/food/faves" method="POST" >
-       <input class="form-control" type="hidden" styletype="text" id="search" name="description"  value="<%=food.description%>" 
-       style="width:350px; height:30px; font-size:16px;padding:10px;border: 2px solid rgb(84, 54, 155); border-radius: 10px; " >
-       <br>
-       <input class="form-control" type="hidden"  id="search" name="userId"  value="<%=food.userId%>" >
-       <input class="form-control" type="hidden"  id="search" name="foodId"  value="<%=food.fdcId%>" >
-   <button class="btn btn-primary" type="submit" value="Submit" style="border-radius: 10px; margin-left: 250px;">Add to shopping List</button>
-   
-     </form>
-
-
-
-
- 
 
 
 
@@ -33,10 +24,53 @@
 
 
 
-<a  style="margin-left: 500px;"href="/">&larr; Back Home</a>
+  <!-----------------------------------food ing-->
+</div>
+<form action="/food/faves" method="POST">
+  <input
+    class="form-control"
+    type="hidden"
+    styletype="text"
+    id="search"
+    name="description"
+    value="<%=food.description%>"
+    style="
+      width: 350px;
+      height: 30px;
+      font-size: 16px;
+      padding: 10px;
+      border: 2px solid rgb(84, 54, 155);
+      border-radius: 10px;
+    "
+  />
+  <br />
+  <input
+    class="form-control"
+    type="hidden"
+    id="search"
+    name="userId"
+    value="<%=food.userId%>"
+  />
+  <input
+    class="form-control"
+    type="hidden"
+    id="search"
+    name="foodId"
+    value="<%=food.fdcId%>"
+  />
+  <button
+    class="button is-success is-rounded"
+    type="submit"
+    value="Submit"
+    style="border-radius: 10px; margin-left: 250px;background-color: #00d1b2;"
+  >
+    Add to shopping List
+  </button>
+</form>
+<img src="https://thumbs.dreamstime.com/b/word-organic-green-leaves-vector-hand-lettering-isolated-white-background-rgb-global-colors-165634913.jpg" style="width: 150px; margin-left: 900px; margin-top: 110px;" alt="">
+<a style="margin-left: 500px" href="/">&larr; Back Home</a>
+
 
 
 
 <%- include('../partials/footer') %>
-
-

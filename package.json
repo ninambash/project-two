@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-tail":"NODE_ENV=production tailwindcss build -i styles/tailwindcss.css -o assets/styles.css"
   },
   "keywords": [],
   "author": "",
@@ -22,5 +23,8 @@
     "pg": "^8.8.0",
     "sequelize": "^6.28.0",
     "sequelize-cli": "^6.5.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
   }
 }

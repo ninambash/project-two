@@ -1,27 +1,30 @@
-<%- include('../partials/header.ejs', { user }) %> 
+<%- include('../partials/header.ejs', { user }) %>
 
 
- <div style=" margin-left: 400px;width: 1200px;">
+  <!-- Food name, foodNutrients[], list of ingredients  -->
+  <%results.forEach(result=>{%>
+  <a style="border-radius: 5px; margin-left: 200px;color: rgb(34, 160, 61); border: 5px solid white;" href="/food/<%=result.fdcId%> "
+   
+   
+   >See details</a
+   >
+   <p style="margin-left: 200px;">Food Category: <%=result.foodCategory%></p>
+   <p style="margin-left: 200px;">Description: <%=result.description%></p>
+   <p style="margin-left: 200px;">Market Country: <%=result.marketCountry%></p>
+   <p style="margin-left: 200px;">ServingSize: <%=result.servingSize%></p>
+   <div class="columns is-mobile">
+      <div class="column is-half is-offset-one-quarter">       </div>
+    </div>
 
-    <!-- Food name, foodNutrients[], list of ingredients  -->
-       <%results.forEach(result=>{%>
-          <a style="border:1px solid rgb(94, 94, 172);"href="/food/<%=result.fdcId%> ">See details</a>
-        
-        
-           
-            <p>Food Category: <%=result.foodCategory%></p>
-            <p>Description: <%=result.description%></p>
-            <p>Market Country: <%=result.marketCountry%></p>
-            <p>ServingSize: <%=result.servingSize%></p>
-            <p>Engredients: <%=result.ingredients%></p>
-           
-           
-       <%})%>
-       
- </div>
+  <%})%>
 
 
+<img src="https://thumbs.dreamstime.com/b/word-organic-green-leaves-vector-hand-lettering-isolated-white-background-rgb-global-colors-165634913.jpg" style="width: 150px; margin-left: 900px; margin-top: 110px;" alt="">
 
+
+
+
+<a style="margin-left: 500px" href="/">&larr; Back Home</a>
 
 
 <%- include('../partials/footer.ejs') %>

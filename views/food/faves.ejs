@@ -1,21 +1,25 @@
 <%- include('../partials/header', { user }) %>
 <div class="cards-container" style="margin-left: 500px;">
   <% for (const fave of faves) { %>
-  <div class="card d-inline-block" style="width: 30rem;height: 10rem;">
-    <div class="card-body">
-      <h5 class="card-title">
-        <a href="/food/<%=fave.foodId %>  "><%= fave.description %> </a>
-      </h5>
-     
-
-      <form action="/comments/food/<%=fave.id%>" method="POST">
-        <input class="form-control" styletype="text" name="content" />
-
+    <div class="card d-inline-block" style="width: 40rem;height: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="/food/<%=fave.foodId %>  "><%= fave.description %> </a>
+        </h5>
+        
+        
+        <form action="/comments/food/<%=fave.id%>" method="POST">
+          <input style="width: 550px;height: 50px; margin-left: 50px; border-radius: 15px;" class="form-control" styletype="text" name="content" />
+          
+            
+          </div>
+          
+         
         <button
-          class="btn btn-primary"
+          class="button is-success is-rounded"
           type="submit"
           value="Submit"
-          style="border-radius: 10px"
+          style="background-color: #00d1b2; margin-left: 19px; margin-top: 200px;"
         >
            comments
         </button>
@@ -23,11 +27,11 @@
       <%fave.comments.forEach(comment => {%> <%=comment.content %> <%}) %>
       
     </form>   
-    <form  method="POST" action="/users/faves/<%= fave.foodId %>/?_method=DELETE">
+    <form style="text-align: center;" method="POST" action="/users/faves/<%= fave.foodId %>/?_method=DELETE">
       
       
       <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" class="btn btn-outline-danger btn-sm" value="DELETE">
+    <input style="background-color:hsl(348, 100%, 61%); border-radius: 15px; color: white; margin-left: 500px; margin-top: -40px;"type="submit" class="button is-warning" value="DELETE">
     
 
   
@@ -36,4 +40,13 @@
     </div>
   </div>
 </div>
-<a style="margin-top: -200px;"href="/">&larr; Back Home </a>
+
+
+  <img src="https://thumbs.dreamstime.com/b/word-organic-green-leaves-vector-hand-lettering-isolated-white-background-rgb-global-colors-165634913.jpg" style="width: 150px; margin-left: 900px; margin-top: 110px;" alt="">
+  <a style="margin-left: 500px" href="/">&larr; Back Home</a>
+
+
+
+<%- include('../partials/footer') %>
+
+

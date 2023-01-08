@@ -1,5 +1,4 @@
 // required packages
-// required packages
 const ejs = require("ejs");
 require("dotenv").config();
 const express = require("express");
@@ -8,12 +7,12 @@ const cookieParser = require("cookie-parser");
 const db = require("./models");
 const crypto = require("crypto-js");
 const axios = require("axios");
-const methodOverride = require('method-override');
+const methodOverride = require("method-override");
 
-// app config
 const app = express();
 
 app.set("view engine", "ejs");
+
 app.engine("ejs", require("ejs").__express);
 const PORT = process.env.PORT || 8000;
 // parse request bodies from html forms
@@ -21,10 +20,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // tell express to parse incoming cookies
 app.use(cookieParser());
+
+
+
 //app.use(methodOverride("_method"))
-app.use(express.static("public"));
+app.use(express.static("public")); ////////////////works
 //app.use(methodOverride("_method"))
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
 // custom auth middleware that checks the cookies for a user id
 // and it finds one, look up the user in the db
@@ -36,7 +38,7 @@ app.use(async (req, res, next) => {
       const decryptedId = crypto.AES.decrypt(
         req.cookies.userId,
         process.env.SECRET
-        );
+      );
       const decryptedString = decryptedId.toString(crypto.enc.Utf8);
       // the user is logged in, lets find them in the db
       const user = await db.user.findByPk(decryptedString);
@@ -55,6 +57,7 @@ app.use(async (req, res, next) => {
     next(); // go to the next thing
   }
 });
+//********* GET profile **************************
 app.get("/profile", (req, res) => {
   console.log(res.locals.user);
 
@@ -63,7 +66,11 @@ app.get("/profile", (req, res) => {
   });
 });
 
+ 
 
+
+
+// //********* GET Home **************************
 app.get("/", (req, res) => {
   console.log(res.locals.user);
   res.render("home.ejs", {
@@ -81,14 +88,12 @@ app.use((req, res, next) => {
   // invoke next to tell express to go to the next route or middle
   next();
 });
-
+//********* controllers **************************
 app.use("/users", require("./controllers/users"));
 app.use("/food", require("./controllers/food"));
 app.use("/comments", require("./controllers/comments"));
 
-//app.use("/user_notes", require ("./controllers/user_notes"))
-
-// listen on a port
+//********* PORT **************************
 app.listen(PORT, () => {
   console.log(`authenticating users on PORT ${PORT} 🔐`);
 });

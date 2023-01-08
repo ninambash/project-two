@@ -6,18 +6,18 @@ const { route } = require("./users");
 const db = require("../models");
 const router = express.Router();
 
-//ROUTES
-
+//********* ROUTES GET to food/search  **************************
 router.get("/search", (req, res) => {
   res.render("food/search.ejs", {
     user: res.locals.user,
   });
 });
+//********* ROUTES GET to food/search for food **************************
 router.get("/:id", async (req, res) => {
   try {
     const search = req.params.id;
     //console.log(req.params);
-    const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=1&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`;
+    const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=2&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`;
 
     const response = await axios.get(baseUrl);
 
@@ -27,12 +27,12 @@ router.get("/:id", async (req, res) => {
     console.log("🔥", error);
   }
 });
-//POST route to search for food////
+//********* ROUTES POST to render food/search --show results **************************
 router.post("/search", async (req, res) => {
   try {
     const search = req.body.search;
     //console.log(search);
-    const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=2&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`;
+    const baseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${search}&pageSize=4&api_key=Z480AVCBPxFVycBJYXnn6rLc1KOrzMc2Dr4qw6MD`;
 
     const response = await axios.get(baseUrl);
 
@@ -46,97 +46,36 @@ router.post("/search", async (req, res) => {
     console.log("🔥", error);
   }
 });
-
-router.get("users/Recipes", (req, res) => {
-  //console.log(res.locals.user);
-
-  res.render("/Recipes.ejs", {
-    user: res.locals.user,
-  });
-});
-//POST localhost:8000/food/favorites POST favorited foods by user into db
+//********* ROUTES POST to food/fave  --favorited foods by the user into db when logged in**************************
 router.post ("/faves", async (req, res)=>{
   try{
-      console.log("faves",req.body)
-      // find or create
-      const [food] = await db.fave.findOrCreate({
-          where:{
-            description:req.body.description,
-            userId:res.locals.user.id,
-            foodId:req.body.foodId
-          }
-      })
-      // associate food  with user favorites
-      // food.addUser(req.locals.user)
-      await res.locals.user.addFave(food.id)
-      // console.log("fav 2 test")
-      res.redirect("/users/faves")
+    console.log("faves",req.body)
+    // find or create
+    const [food] = await db.fave.findOrCreate({
+      where:{
+        description:req.body.description,
+        userId:res.locals.user.id,
+        foodId:req.body.foodId
+      }
+    })
+    // associate food  with user favorites
+    // food.addUser(req.locals.user)
+    await res.locals.user.addFave(food.id)
+    // console.log("fav 2 test")
+    res.redirect("/users/faves")
   } catch(error) {
-      console.log(error)
-      res.send("server error")
+    console.log(error)
+    res.send("server error")
   }
 })
 
-// router.post("/comments", async(req,res) => {
-//   try {
-//     const response = await axios.get(baseUrl)
-//     const food = response.data.foods[0] 
-//     const comments = await db.comment.findAll({
-      
-//       where:{
-//             foodId:req.params.id
-//             //userId:res.locals.user.id
-//       }
-//     })
-//     console.log('These are the comments', comments)
-//     res.render("food/comments.ejs", { food:response.data.foods[0], comments });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
-// router.get('/:id/comments',async(req,res)=>{
-//   try{
-
+//********* ROUTES GET users/recipes **************************
+  router.get("users/Recipes", (req, res) => {
+    //console.log(res.locals.user);
   
-//   const comments = await db.comment.findOrCreate({
-//     where: { foodId: req.params.id }
-//   });
-//   // Send the comments as a response
-//   res.send({ comments });
-// } catch (error) {
-//   console.error(error);
-//   res.status(500).send("Error retrieving comments");
-// }
-// });
- 
-
-
-
-
-
-
-// GET localhost:8000/food/favorites see all fave foods
-// router.get("/faves", async (req, res) => {
-//   try {
-//     const faves = await db.fave.findAll({
-//       where:{
-            
-//             userId:res.locals.user.id
-            
-        
-
-//       }
-//     })
-    
-//     res.render("food/faves.ejs", { faves });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
-
-
-
-
-
+    res.render("/Recipes.ejs", {
+      user: res.locals.user,
+    });
+  });
 
 module.exports = router;
