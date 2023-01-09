@@ -1,39 +1,32 @@
 # Project 2
-Splendid
+Shop with Splendid
 
 
 #  Pitch
-Splendid is a grocery app that helps users find food amd  and  do a quick refrence of what type of product, product category, country of origin and Ingredients based on search query.
+Splendid is a food app that helps users find, favorite and comment on the liked food. This app lets users search for a particular food to see the details like food category, servings, nutritional value and the country that produces the food. Splendid is a full-stack app built with Nodejs, Express, postgresql, ejs and bulma. Splendid is created three models, one for user, comments and fave...see more in the ERD chart.
 
 
-
+# Deployed link
+https://splendid-dev.herokuapp.com/
 
 # Install Splendid 
 1.Fork and clone repository<br>
-2. In your terminal run command: npm install (this will install all needed packages)<br>
-3. You will need to install a few file for functionality. In your terminal: touch .gitignore .env<br>
-4. Add node_modules and .env to your .gitignore file<br>
-5.You will need an API key for <br>
-6.Create the database and migrate the models into it by running the following commands:<br> sequelize db:migrate<br>
+2.In your terminal run command: npm install (this will install all needed packages)<br>
+3.You will need to install a few file for functionality. In your terminal: touch .gitignore .env<br>
+4.Add node_modules and .env to your .gitignore file<br>
+5.You will need an API key from FDCID <br>
+6.Create the database and migrate the models by running the following commands:<br> sequelize db:migrate<br>
 7.Run the nodemon and navigate to localHost:3000 in your browser and you are all set! Enjoy!<br>
 
-
 # Restful Routing Chart
-
-<img width="1680" alt="Screenshot 2022-12-23 at 10 43 25 AM" src="https://user-images.githubusercontent.com/81638717/209398965-0d375cad-2657-4606-afaa-a4794a8245f3.png">
+![restful routing chart](https://user-images.githubusercontent.com/81638717/211250795-09e71dea-5e08-416e-9a3f-16881fa736d8.png)
 
 
 # ERD
-![Screenshot 2022-12-23 at 11 51 59 AM (2)](https://user-images.githubusercontent.com/81638717/209400249-9864d864-8fb4-475d-a732-d7c636f4a7f6.png)
-
-
-
+![ERD](https://user-images.githubusercontent.com/81638717/211250949-70509382-6f8f-4bf2-b532-6bbc39e1c278.png)
 
 # Wirereame  
 ![Screenshot 2022-12-23 at 11 08 23 AM (2)](https://user-images.githubusercontent.com/81638717/209399013-a2144a3d-cd66-45a1-a972-6fb3a38a52ec.png)
-
-
-
 
 # Tech stack
 NodeJs <br>
@@ -44,13 +37,13 @@ html<br>
 css<br>
 JavaScript<br>
 sql<br>
-- https://docs.lexigram.io/
+
 
 # User Story
-As a user, I want to log into my profile and search for the presented symptom<br>
-As a user, I want to see a response of what the disease the patient could be suffering from<br>
-As a user, I want to be able to update patient symptoms<br>
-As a user, I want an opportunity to delete the user if they are cured<br>
+As a user, I want to log into the app and search for the food I'm looking for<br>
+As a user, I want to see a response of the food and serving size<br>
+As a user, I want to be able add favorite the food and leave a brif comment<br>
+As a user, I want an opportunity to delete the food if I dont need it anymore<br>
 
 # MVP Goals
 -adding API<br>
@@ -59,42 +52,37 @@ As a user, I want an opportunity to delete the user if they are cured<br>
 -deployed online and accessible to the public<br>
 -DRY HTML, CSS, and back-end code
 
-
-
-
 # stretch goals
-Add calc table<br>
-Keeping track of how how many people got <br>
+Adding pictures of the searched food<br>
+Adding price of the food <br>
 Styling the app to look nicer
 
 
 # potential roadblocks
 -Correct routing <br>
--Proper database <br>
--Relationships/associat btn user, products and reviews<br>
--connecting backend<br>
+-Utelize ORM<br>
+-Relationships/associations btn user, products and comments<br>
 -dropping databases<br>
 -destructuring <br>
--Middleware<br>
--EJs<br>
+
 # approach taken
-
-Researched for an API in mind
-
-
-
----------------------------------------------------
-
-
-# Deployed link
---------------------------------------------
+Researched for an API in mind, looked for that API to make sure I was able to access and get the data I needed.<br>
+Drew out my ERD and RESTFUL routing charts according to how I wanted app to function<br>
+Authenticated the app and added routes for what happens when the user is interactiong with the app<br>
+Added controllers for users, food, and comments<br>
+Added the views for food, partials, users and home<br>
+Created my models for food,faves and users then migrated<br>
+Styled the app to look nicer<br>
 
 
 #  Post-project reflection 
--------------------------------
-# Sources used
+This project was wide and needed enough time for review/research. My biggest challenge was getting the right API since most API's are not reliable.<br>
+When I started, my potential roadblocks included correct routing, using an API, and establishing proper relational database for the entire project to come together, but through hard-work and perseverance I was able to learn so much and use the knowlege to implement into the project.
 
-------------------------------
+# Sources used
+MDN
+USDA foodData central API
+
 
 
 
